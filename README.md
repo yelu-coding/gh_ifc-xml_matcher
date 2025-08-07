@@ -19,7 +19,6 @@ It is structured as a **Python Flask + Hops server**, fully controllable via **G
 
 ## 📁 Folder Structure
 
-```text
 GH_IFC_Project/
 ├── app.py                 # Main Flask + Hops service entry point
 ├── core/                  # Step-wise processing logic
