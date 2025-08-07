@@ -39,26 +39,23 @@ GH_IFC_Project/
 
 ```bash
 pip install -r requirements.txt
-
----
+ ```
 
 ### 2. Launch the Hops server:
 ```bash
 python app.py
+ ```
 
----
 Your endpoints will be available at:
 ```bash
 http://localhost:5000/parse_ifc
 http://localhost:5000/parse_xml
 http://localhost:5000/match_components
-
----
+ ```
 
 ### 3. Open Grasshopper + Rhino
 Use the .gh files inside the gh/ folder and add Hops components with the appropriate URLs.
 
----
 
 ## 🎛️ Hops Node Interface: match_components
 
@@ -77,14 +74,12 @@ These are needed to dynamically extract the NC filename from the IFC properties:
 i.get("Properties", {}).get(PSet, {}).get(PKey)
 ![Hops Node Example](gh/hops_match_input.png)
 
----
 
 ### OUTPUT
 | Param Name | Meaning                          |                              |
 | ---------- | -------------------------------- | ---------------------------- |
 | `R`        | Matching summary (\`✅ Matched: X | ⚠️ Manual Check Needed: Y\`) |
 
----
 
 ## 📊 Sample Output
 
@@ -96,12 +91,10 @@ output/result.xlsx or output/matched.csv
 | ...     | ...     | 0.00321 | matrix\_direction\_match | 2538.nc  | True            |
 NeedManualCheck = True indicates multiple near-identical matches by matrix.
 
----
 
 ## 📄 License
 MIT License © 2025 Ye Lu
 
----
 
 ## 📬 Contact / Feedback
 If you'd like to contribute, report an issue, or collaborate, feel free to contact Ye Lu or open a GitHub issue.
