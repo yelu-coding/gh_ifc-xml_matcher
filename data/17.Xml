@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--WIA file written  2024-08-27 15:35:43 by Wiscon DSTV Export Tool for Tekla Structures, Version 2024.0.2+57bdfdae5e2f2826acc5d3696ed8d4af32460a44 (2018-02-02)-->
+<WIA VERSION="1.0">
+  <HEAD NAME="17" JOB_NR="24500">
+    <STRING NAME="Description" VALUE="Träger" />
+    <STRING NAME="MainProfileName" VALUE="U160" />
+    <STRING NAME="MainMaterialName" VALUE="S235JR" />
+    <INT NAME="Quantity" VALUE="1" />
+    <DOUBLE NAME="Length" VALUE="2550.1" />
+    <DOUBLE NAME="Width" VALUE="1280" />
+    <DOUBLE NAME="Height" VALUE="263.2" />
+    <DOUBLE NAME="Camber" VALUE="0" />
+  </HEAD>
+  <ASSEMBLY>
+    <PART NAME="Träger" ID="GUID_c6352ab8-b942-4a94-816c-3295163521b2" TYPE="LEADING_PART" REPRESENTATION="REFERENCE">
+      <FRAME>
+        <BASE X="0" Y="0" Z="0" />
+        <RX X="1" Y="0" Z="0" />
+        <RY X="0" Y="1" Z="0" />
+      </FRAME>
+      <REFERENCE DATA_TYPE="DSTV-NC" FILE_NAME="17.nc" />
+    </PART>
+    <PART NAME="Blech" ID="GUID_c761dd8a-9e96-4a60-91e7-039d374b14ff" TYPE="ATTACHED_PART" REPRESENTATION="REFERENCE">
+      <FRAME>
+        <BASE X="54.74" Y="158.284" Z="65" />
+        <RX X="-0.382683" Y="-0.92388" Z="0" />
+        <RY X="0" Y="0" Z="-1" />
+      </FRAME>
+      <REFERENCE DATA_TYPE="DSTV-NC" FILE_NAME="1005.nc" />
+    </PART>
+    <PART NAME="Stirnplatte" ID="GUID_5e952c25-cadb-41c7-b105-bca4d18ef6b8" TYPE="ATTACHED_PART" REPRESENTATION="REFERENCE">
+      <FRAME>
+        <BASE X="-155.508" Y="161.409" Z="5" />
+        <RX X="0.707107" Y="0.707107" Z="0" />
+        <RY X="0" Y="0" Z="1" />
+      </FRAME>
+      <REFERENCE DATA_TYPE="DSTV-NC" FILE_NAME="1006.nc" />
+    </PART>
+    <PART NAME="Träger" ID="GUID_fc91237d-a0b6-4816-a463-29e376531391" TYPE="ATTACHED_PART" REPRESENTATION="REFERENCE">
+      <FRAME>
+        <BASE X="-5.409" Y="160" Z="-1195" />
+        <RX X="0" Y="0" Z="1" />
+        <RY X="0" Y="-1" Z="0" />
+      </FRAME>
+      <REFERENCE DATA_TYPE="DSTV-NC" FILE_NAME="3023.nc" />
+    </PART>
+    <PART NAME="Träger" ID="GUID_3de5c1e1-1d80-445a-bca1-780bf771bd73" TYPE="ATTACHED_PART" REPRESENTATION="REFERENCE">
+      <FRAME>
+        <BASE X="752.591" Y="160" Z="-1195" />
+        <RX X="0" Y="0" Z="1" />
+        <RY X="0" Y="-1" Z="0" />
+      </FRAME>
+      <REFERENCE DATA_TYPE="DSTV-NC" FILE_NAME="3024.nc" />
+    </PART>
+    <PART NAME="Träger" ID="GUID_8e0fdf58-5bc9-4d9c-bc1f-c6f42a4831a0" TYPE="ATTACHED_PART" REPRESENTATION="REFERENCE">
+      <FRAME>
+        <BASE X="1552.591" Y="160" Z="-1195" />
+        <RX X="0" Y="0" Z="1" />
+        <RY X="0" Y="-1" Z="0" />
+      </FRAME>
+      <REFERENCE DATA_TYPE="DSTV-NC" FILE_NAME="3024.nc" />
+    </PART>
+    <PART NAME="Träger" ID="GUID_1dd3e15f-7ede-4c8c-9c7c-7dfe207990ad" TYPE="ATTACHED_PART" REPRESENTATION="REFERENCE">
+      <FRAME>
+        <BASE X="2394.591" Y="0" Z="-1195" />
+        <RX X="0" Y="0" Z="1" />
+        <RY X="0" Y="1" Z="0" />
+      </FRAME>
+      <REFERENCE DATA_TYPE="DSTV-NC" FILE_NAME="3025.nc" />
+    </PART>
+    <PART NAME="Träger" ID="GUID_a6894522-f2d5-4a75-a8e1-971a0cd3adc9" TYPE="ATTACHED_PART" REPRESENTATION="REFERENCE">
+      <FRAME>
+        <BASE X="-5.409" Y="0" Z="-1215" />
+        <RX X="1" Y="0" Z="0" />
+        <RY X="0" Y="1" Z="0" />
+      </FRAME>
+      <REFERENCE DATA_TYPE="DSTV-NC" FILE_NAME="3027.nc" />
+    </PART>
+    <PART NAME="Träger" ID="GUID_ea5be8e4-8a87-43b4-b6f0-04b55508d5cf" TYPE="ATTACHED_PART" REPRESENTATION="REFERENCE">
+      <FRAME>
+        <BASE X="-154.093" Y="148.681" Z="0" />
+        <RX X="0.707107" Y="-0.707107" Z="0" />
+        <RY X="0.707107" Y="0.707107" Z="0" />
+      </FRAME>
+      <REFERENCE DATA_TYPE="DSTV-NC" FILE_NAME="3036.nc" />
+    </PART>
+  </ASSEMBLY>
+  <PROCESS>
+    <WELDING>
+      <SEAM NAME="SimpleWeld" ID="Weld_1" SEAM_TYPE="FILLET" A="3.0">
+        <CONTOUR>
+          <POINT X="2.296" Y="5.543" Z="6">
+            <FACE_REF PART_ID="GUID_c6352ab8-b942-4a94-816c-3295163521b2" X="-0.92388" Y="0.382683" Z="0" />
+            <FACE_REF PART_ID="GUID_c761dd8a-9e96-4a60-91e7-039d374b14ff" X="0" Y="0" Z="-1" />
+          </POINT>
+          <POINT X="63.978" Y="154.457" Z="6">
+            <FACE_REF PART_ID="GUID_c6352ab8-b942-4a94-816c-3295163521b2" X="-0.92388" Y="0.382683" Z="0" />
+            <FACE_REF PART_ID="GUID_c761dd8a-9e96-4a60-91e7-039d374b14ff" X="0" Y="0" Z="-1" />
+          </POINT>
+        </CONTOUR>
+      </SEAM>
+      <SEAM NAME="SimpleWeld" ID="Weld_2" SEAM_TYPE="FILLET" A="3.0">
+        <CONTOUR>
+          <POINT X="3.272" Y="7.9" Z="65">
+            <FACE_REF PART_ID="GUID_c6352ab8-b942-4a94-816c-3295163521b2" X="0" Y="0" Z="1" />
+            <FACE_REF PART_ID="GUID_c761dd8a-9e96-4a60-91e7-039d374b14ff" X="0" Y="0" Z="1" />
+          </POINT>
+          <POINT X="2.296" Y="5.543" Z="65">
+            <FACE_REF PART_ID="GUID_c6352ab8-b942-4a94-816c-3295163521b2" X="0" Y="0" Z="1" />
+            <FACE_REF PART_ID="GUID_c761dd8a-9e96-4a60-91e7-039d374b14ff" X="0" Y="0" Z="1" />
+          </POINT>
+        </CONTOUR>
+      </SEAM>
+      <SEAM NAME="SimpleWeld" ID="Weld_3" SEAM_TYPE="FILLET" A="3.0">
+        <CONTOUR>
+          <POINT X="2.296" Y="5.543" Z="65">
+            <FACE_REF PART_ID="GUID_c6352ab8-b942-4a94-816c-3295163521b2" X="-0.92388" Y="0.382683" Z="0" />
+            <FACE_REF PART_ID="GUID_c761dd8a-9e96-4a60-91e7-039d374b14ff" X="-0.382683" Y="-0.92388" Z="0" />
+          </POINT>
+          <POINT X="2.296" Y="5.543" Z="6">
+            <FACE_REF PART_ID="GUID_c6352ab8-b942-4a94-816c-3295163521b2" X="-0.92388" Y="0.382683" Z="0" />
+            <FACE_REF PART_ID="GUID_c761dd8a-9e96-4a60-91e7-039d374b14ff" X="-0.382683" Y="-0.92388" Z="0" />
+          </POINT>
+        </CONTOUR>
+      </SEAM>
+      <SEAM NAME="SimpleWeld" ID="Weld_4" SEAM_TYPE="FILLET" A="5.0">
+        <CONTOUR>
+          <POINT X="-46.613" Y="256.162" Z="5">
+            <FACE_REF PART_ID="GUID_ea5be8e4-8a87-43b4-b6f0-04b55508d5cf" X="-0.707107" Y="0.707107" Z="0" />
+            <FACE_REF PART_ID="GUID_5e952c25-cadb-41c7-b105-bca4d18ef6b8" X="0.707107" Y="0.707107" Z="0" />
+          </POINT>
+          <POINT X="-46.613" Y="256.162" Z="63.75">
+            <FACE_REF PART_ID="GUID_ea5be8e4-8a87-43b4-b6f0-04b55508d5cf" X="-0.707107" Y="0.707107" Z="0" />
+            <FACE_REF PART_ID="GUID_5e952c25-cadb-41c7-b105-bca4d18ef6b8" X="0.707107" Y="0.707107" Z="0" />
+          </POINT>
+        </CONTOUR>
+      </SEAM>
+      <SEAM NAME="SimpleWeld" ID="Weld_5" SEAM_TYPE="FILLET" A="5.0">
+        <CONTOUR>
+          <POINT X="-145.255" Y="157.52" Z="7.5">
+            <FACE_REF PART_ID="GUID_ea5be8e4-8a87-43b4-b6f0-04b55508d5cf" X="0.704855" Y="0.704855" Z="0.079745" />
+            <FACE_REF PART_ID="GUID_5e952c25-cadb-41c7-b105-bca4d18ef6b8" X="0.707107" Y="-0.707107" Z="0" />
+          </POINT>
+          <POINT X="-148.437" Y="154.338" Z="63.75">
+            <FACE_REF PART_ID="GUID_ea5be8e4-8a87-43b4-b6f0-04b55508d5cf" X="0.704855" Y="0.704855" Z="0.079745" />
+            <FACE_REF PART_ID="GUID_5e952c25-cadb-41c7-b105-bca4d18ef6b8" X="0.707107" Y="-0.707107" Z="0" />
+          </POINT>
+        </CONTOUR>
+      </SEAM>
+      <SEAM NAME="SimpleWeld" ID="Weld_6" SEAM_TYPE="FILLET" A="5.0">
+        <CONTOUR>
+          <POINT X="-148.437" Y="154.338" Z="63.75">
+            <FACE_REF PART_ID="GUID_ea5be8e4-8a87-43b4-b6f0-04b55508d5cf" X="-0.707107" Y="0.707107" Z="0" />
+            <FACE_REF PART_ID="GUID_5e952c25-cadb-41c7-b105-bca4d18ef6b8" X="-0.707107" Y="-0.707107" Z="0" />
+          </POINT>
+          <POINT X="-148.437" Y="154.338" Z="5">
+            <FACE_REF PART_ID="GUID_ea5be8e4-8a87-43b4-b6f0-04b55508d5cf" X="-0.707107" Y="0.707107" Z="0" />
+            <FACE_REF PART_ID="GUID_5e952c25-cadb-41c7-b105-bca4d18ef6b8" X="-0.707107" Y="-0.707107" Z="0" />
+          </POINT>
+        </CONTOUR>
+      </SEAM>
+      <SEAM NAME="SimpleWeld" ID="Weld_7" SEAM_TYPE="FILLET" A="5.0">
+        <CONTOUR>
+          <POINT X="-145.255" Y="157.52" Z="7.5">
+            <FACE_REF PART_ID="GUID_ea5be8e4-8a87-43b4-b6f0-04b55508d5cf" X="0.704855" Y="0.704855" Z="0.079745" />
+            <FACE_REF PART_ID="GUID_5e952c25-cadb-41c7-b105-bca4d18ef6b8" X="0.707107" Y="-0.707107" Z="0" />
+          </POINT>
+          <POINT X="-148.437" Y="154.338" Z="63.75">
+            <FACE_REF PART_ID="GUID_ea5be8e4-8a87-43b4-b6f0-04b55508d5cf" X="0.704855" Y="0.704855" Z="0.079745" />
+            <FACE_REF PART_ID="GUID_5e952c25-cadb-41c7-b105-bca4d18ef6b8" X="0.707107" Y="-0.707107" Z="0" />
+          </POINT>
+        </CONTOUR>
+      </SEAM>
+      <SEAM NAME="SimpleWeld" ID="Weld_8" SEAM_TYPE="FILLET" A="5.0">
+        <CONTOUR>
+          <POINT X="-49.795" Y="252.98" Z="7.5">
+            <FACE_REF PART_ID="GUID_ea5be8e4-8a87-43b4-b6f0-04b55508d5cf" X="0" Y="0" Z="1" />
+            <FACE_REF PART_ID="GUID_5e952c25-cadb-41c7-b105-bca4d18ef6b8" X="0.707107" Y="-0.707107" Z="0" />
+          </POINT>
+          <POINT X="-145.255" Y="157.52" Z="7.5">
+            <FACE_REF PART_ID="GUID_ea5be8e4-8a87-43b4-b6f0-04b55508d5cf" X="0" Y="0" Z="1" />
+            <FACE_REF PART_ID="GUID_5e952c25-cadb-41c7-b105-bca4d18ef6b8" X="0.707107" Y="-0.707107" Z="0" />
+          </POINT>
+        </CONTOUR>
+      </SEAM>
+      <SEAM NAME="SimpleWeld" ID="Weld_9" SEAM_TYPE="FILLET" A="5.0">
+        <CONTOUR>
+          <POINT X="-148.437" Y="154.338" Z="5">
+            <FACE_REF PART_ID="GUID_ea5be8e4-8a87-43b4-b6f0-04b55508d5cf" X="-0.707107" Y="0.707107" Z="0" />
+            <FACE_REF PART_ID="GUID_5e952c25-cadb-41c7-b105-bca4d18ef6b8" X="0" Y="0" Z="-1" />
+          </POINT>
+          <POINT X="-46.613" Y="256.162" Z="5">
+            <FACE_REF PART_ID="GUID_ea5be8e4-8a87-43b4-b6f0-04b55508d5cf" X="-0.707107" Y="0.707107" Z="0" />
+            <FACE_REF PART_ID="GUID_5e952c25-cadb-41c7-b105-bca4d18ef6b8" X="0" Y="0" Z="-1" />
+          </POINT>
+        </CONTOUR>
+      </SEAM>
+      <SEAM NAME="SimpleWeld" ID="Weld_10" SEAM_TYPE="FILLET" A="3.0">
+        <CONTOUR>
+          <POINT X="-5.409" Y="160" Z="-1195">
+            <FACE_REF PART_ID="GUID_a6894522-f2d5-4a75-a8e1-971a0cd3adc9" X="-1" Y="0" Z="0" />
+            <FACE_REF PART_ID="GUID_fc91237d-a0b6-4816-a463-29e376531391" X="-1" Y="0" Z="0" />
+          </POINT>
+          <POINT X="-5.409" Y="0" Z="-1195">
+            <FACE_REF PART_ID="GUID_a6894522-f2d5-4a75-a8e1-971a0cd3adc9" X="-1" Y="0" Z="0" />
+            <FACE_REF PART_ID="GUID_fc91237d-a0b6-4816-a463-29e376531391" X="-1" Y="0" Z="0" />
+          </POINT>
+        </CONTOUR>
+      </SEAM>
+      <SEAM NAME="SimpleWeld" ID="Weld_11" SEAM_TYPE="FILLET" A="3.0">
+        <CONTOUR>
+          <POINT X="2.091" Y="12.5" Z="-1195">
+            <FACE_REF PART_ID="GUID_a6894522-f2d5-4a75-a8e1-971a0cd3adc9" X="0" Y="0" Z="1" />
+            <FACE_REF PART_ID="GUID_fc91237d-a0b6-4816-a463-29e376531391" X="1" Y="0" Z="0" />
+          </POINT>
+          <POINT X="2.091" Y="147.5" Z="-1195">
+            <FACE_REF PART_ID="GUID_a6894522-f2d5-4a75-a8e1-971a0cd3adc9" X="0" Y="0" Z="1" />
+            <FACE_REF PART_ID="GUID_fc91237d-a0b6-4816-a463-29e376531391" X="1" Y="0" Z="0" />
+          </POINT>
+        </CONTOUR>
+      </SEAM>
+      <SEAM NAME="SimpleWeld" ID="Weld_12" SEAM_TYPE="FILLET" A="3.0">
+        <CONTOUR>
+          <POINT X="791.091" Y="152.6" Z="-1195">
+            <FACE_REF PART_ID="GUID_a6894522-f2d5-4a75-a8e1-971a0cd3adc9" X="0" Y="0" Z="1" />
+            <FACE_REF PART_ID="GUID_3de5c1e1-1d80-445a-bca1-780bf771bd73" X="-1" Y="0" Z="0" />
+          </POINT>
+          <POINT X="791.091" Y="7.4" Z="-1195">
+            <FACE_REF PART_ID="GUID_a6894522-f2d5-4a75-a8e1-971a0cd3adc9" X="0" Y="0" Z="1" />
+            <FACE_REF PART_ID="GUID_3de5c1e1-1d80-445a-bca1-780bf771bd73" X="-1" Y="0" Z="0" />
+          </POINT>
+        </CONTOUR>
+      </SEAM>
+      <SEAM NAME="SimpleWeld" ID="Weld_13" SEAM_TYPE="FILLET" A="3.0">
+        <CONTOUR>
+          <POINT X="796.091" Y="7.4" Z="-1195">
+            <FACE_REF PART_ID="GUID_a6894522-f2d5-4a75-a8e1-971a0cd3adc9" X="0" Y="0" Z="1" />
+            <FACE_REF PART_ID="GUID_3de5c1e1-1d80-445a-bca1-780bf771bd73" X="1" Y="0" Z="0" />
+          </POINT>
+          <POINT X="796.091" Y="152.6" Z="-1195">
+            <FACE_REF PART_ID="GUID_a6894522-f2d5-4a75-a8e1-971a0cd3adc9" X="0" Y="0" Z="1" />
+            <FACE_REF PART_ID="GUID_3de5c1e1-1d80-445a-bca1-780bf771bd73" X="1" Y="0" Z="0" />
+          </POINT>
+        </CONTOUR>
+      </SEAM>
+      <SEAM NAME="SimpleWeld" ID="Weld_14" SEAM_TYPE="FILLET" A="3.0">
+        <CONTOUR>
+          <POINT X="796.091" Y="152.6" Z="0">
+            <FACE_REF PART_ID="GUID_c6352ab8-b942-4a94-816c-3295163521b2" X="0" Y="0" Z="-1" />
+            <FACE_REF PART_ID="GUID_3de5c1e1-1d80-445a-bca1-780bf771bd73" X="1" Y="0" Z="0" />
+          </POINT>
+          <POINT X="796.091" Y="7.4" Z="0">
+            <FACE_REF PART_ID="GUID_c6352ab8-b942-4a94-816c-3295163521b2" X="0" Y="0" Z="-1" />
+            <FACE_REF PART_ID="GUID_3de5c1e1-1d80-445a-bca1-780bf771bd73" X="1" Y="0" Z="0" />
+          </POINT>
+        </CONTOUR>
+      </SEAM>
+      <SEAM NAME="SimpleWeld" ID="Weld_15" SEAM_TYPE="FILLET" A="3.0">
+        <CONTOUR>
+          <POINT X="791.091" Y="7.4" Z="0">
+            <FACE_REF PART_ID="GUID_c6352ab8-b942-4a94-816c-3295163521b2" X="0" Y="0" Z="-1" />
+            <FACE_REF PART_ID="GUID_3de5c1e1-1d80-445a-bca1-780bf771bd73" X="-1" Y="0" Z="0" />
+          </POINT>
+          <POINT X="791.091" Y="152.6" Z="0">
+            <FACE_REF PART_ID="GUID_c6352ab8-b942-4a94-816c-3295163521b2" X="0" Y="0" Z="-1" />
+            <FACE_REF PART_ID="GUID_3de5c1e1-1d80-445a-bca1-780bf771bd73" X="-1" Y="0" Z="0" />
+          </POINT>
+        </CONTOUR>
+      </SEAM>
+      <SEAM NAME="SimpleWeld" ID="Weld_16" SEAM_TYPE="FILLET" A="3.0">
+        <CONTOUR>
+          <POINT X="1591.091" Y="152.6" Z="-1195">
+            <FACE_REF PART_ID="GUID_a6894522-f2d5-4a75-a8e1-971a0cd3adc9" X="0" Y="0" Z="1" />
+            <FACE_REF PART_ID="GUID_8e0fdf58-5bc9-4d9c-bc1f-c6f42a4831a0" X="-1" Y="0" Z="0" />
+          </POINT>
+          <POINT X="1591.091" Y="7.4" Z="-1195">
+            <FACE_REF PART_ID="GUID_a6894522-f2d5-4a75-a8e1-971a0cd3adc9" X="0" Y="0" Z="1" />
+            <FACE_REF PART_ID="GUID_8e0fdf58-5bc9-4d9c-bc1f-c6f42a4831a0" X="-1" Y="0" Z="0" />
+          </POINT>
+        </CONTOUR>
+      </SEAM>
+      <SEAM NAME="SimpleWeld" ID="Weld_17" SEAM_TYPE="FILLET" A="3.0">
+        <CONTOUR>
+          <POINT X="1596.091" Y="7.4" Z="-1195">
+            <FACE_REF PART_ID="GUID_a6894522-f2d5-4a75-a8e1-971a0cd3adc9" X="0" Y="0" Z="1" />
+            <FACE_REF PART_ID="GUID_8e0fdf58-5bc9-4d9c-bc1f-c6f42a4831a0" X="1" Y="0" Z="0" />
+          </POINT>
+          <POINT X="1596.091" Y="152.6" Z="-1195">
+            <FACE_REF PART_ID="GUID_a6894522-f2d5-4a75-a8e1-971a0cd3adc9" X="0" Y="0" Z="1" />
+            <FACE_REF PART_ID="GUID_8e0fdf58-5bc9-4d9c-bc1f-c6f42a4831a0" X="1" Y="0" Z="0" />
+          </POINT>
+        </CONTOUR>
+      </SEAM>
+      <SEAM NAME="SimpleWeld" ID="Weld_18" SEAM_TYPE="FILLET" A="3.0">
+        <CONTOUR>
+          <POINT X="1596.091" Y="152.6" Z="0">
+            <FACE_REF PART_ID="GUID_c6352ab8-b942-4a94-816c-3295163521b2" X="0" Y="0" Z="-1" />
+            <FACE_REF PART_ID="GUID_8e0fdf58-5bc9-4d9c-bc1f-c6f42a4831a0" X="1" Y="0" Z="0" />
+          </POINT>
+          <POINT X="1596.091" Y="7.4" Z="0">
+            <FACE_REF PART_ID="GUID_c6352ab8-b942-4a94-816c-3295163521b2" X="0" Y="0" Z="-1" />
+            <FACE_REF PART_ID="GUID_8e0fdf58-5bc9-4d9c-bc1f-c6f42a4831a0" X="1" Y="0" Z="0" />
+          </POINT>
+        </CONTOUR>
+      </SEAM>
+      <SEAM NAME="SimpleWeld" ID="Weld_19" SEAM_TYPE="FILLET" A="3.0">
+        <CONTOUR>
+          <POINT X="1591.091" Y="7.4" Z="0">
+            <FACE_REF PART_ID="GUID_c6352ab8-b942-4a94-816c-3295163521b2" X="0" Y="0" Z="-1" />
+            <FACE_REF PART_ID="GUID_8e0fdf58-5bc9-4d9c-bc1f-c6f42a4831a0" X="-1" Y="0" Z="0" />
+          </POINT>
+          <POINT X="1591.091" Y="152.6" Z="0">
+            <FACE_REF PART_ID="GUID_c6352ab8-b942-4a94-816c-3295163521b2" X="0" Y="0" Z="-1" />
+            <FACE_REF PART_ID="GUID_8e0fdf58-5bc9-4d9c-bc1f-c6f42a4831a0" X="-1" Y="0" Z="0" />
+          </POINT>
+        </CONTOUR>
+      </SEAM>
+      <SEAM NAME="SimpleWeld" ID="Weld_20" SEAM_TYPE="FILLET" A="3.0">
+        <CONTOUR>
+          <POINT X="2394.591" Y="0" Z="-1195">
+            <FACE_REF PART_ID="GUID_a6894522-f2d5-4a75-a8e1-971a0cd3adc9" X="1" Y="0" Z="0" />
+            <FACE_REF PART_ID="GUID_1dd3e15f-7ede-4c8c-9c7c-7dfe207990ad" X="1" Y="0" Z="0" />
+          </POINT>
+          <POINT X="2394.591" Y="160" Z="-1195">
+            <FACE_REF PART_ID="GUID_a6894522-f2d5-4a75-a8e1-971a0cd3adc9" X="1" Y="0" Z="0" />
+            <FACE_REF PART_ID="GUID_1dd3e15f-7ede-4c8c-9c7c-7dfe207990ad" X="1" Y="0" Z="0" />
+          </POINT>
+        </CONTOUR>
+      </SEAM>
+      <SEAM NAME="SimpleWeld" ID="Weld_21" SEAM_TYPE="FILLET" A="3.0">
+        <CONTOUR>
+          <POINT X="2387.091" Y="147.5" Z="-1195">
+            <FACE_REF PART_ID="GUID_a6894522-f2d5-4a75-a8e1-971a0cd3adc9" X="0" Y="0" Z="1" />
+            <FACE_REF PART_ID="GUID_1dd3e15f-7ede-4c8c-9c7c-7dfe207990ad" X="-1" Y="0" Z="0" />
+          </POINT>
+          <POINT X="2387.091" Y="12.5" Z="-1195">
+            <FACE_REF PART_ID="GUID_a6894522-f2d5-4a75-a8e1-971a0cd3adc9" X="0" Y="0" Z="1" />
+            <FACE_REF PART_ID="GUID_1dd3e15f-7ede-4c8c-9c7c-7dfe207990ad" X="-1" Y="0" Z="0" />
+          </POINT>
+        </CONTOUR>
+      </SEAM>
+      <SEAM NAME="SimpleWeld" ID="Weld_22" SEAM_TYPE="FILLET" A="3.0">
+        <CONTOUR>
+          <POINT X="2394.591" Y="160" Z="0">
+            <FACE_REF PART_ID="GUID_c6352ab8-b942-4a94-816c-3295163521b2" X="1" Y="0" Z="0" />
+            <FACE_REF PART_ID="GUID_1dd3e15f-7ede-4c8c-9c7c-7dfe207990ad" X="1" Y="0" Z="0" />
+          </POINT>
+          <POINT X="2394.591" Y="0" Z="0">
+            <FACE_REF PART_ID="GUID_c6352ab8-b942-4a94-816c-3295163521b2" X="1" Y="0" Z="0" />
+            <FACE_REF PART_ID="GUID_1dd3e15f-7ede-4c8c-9c7c-7dfe207990ad" X="1" Y="0" Z="0" />
+          </POINT>
+        </CONTOUR>
+      </SEAM>
+      <SEAM NAME="SimpleWeld" ID="Weld_23" SEAM_TYPE="FILLET" A="3.0">
+        <CONTOUR>
+          <POINT X="2387.091" Y="12.5" Z="0">
+            <FACE_REF PART_ID="GUID_c6352ab8-b942-4a94-816c-3295163521b2" X="0" Y="0" Z="-1" />
+            <FACE_REF PART_ID="GUID_1dd3e15f-7ede-4c8c-9c7c-7dfe207990ad" X="-1" Y="0" Z="0" />
+          </POINT>
+          <POINT X="2387.091" Y="147.5" Z="0">
+            <FACE_REF PART_ID="GUID_c6352ab8-b942-4a94-816c-3295163521b2" X="0" Y="0" Z="-1" />
+            <FACE_REF PART_ID="GUID_1dd3e15f-7ede-4c8c-9c7c-7dfe207990ad" X="-1" Y="0" Z="0" />
+          </POINT>
+        </CONTOUR>
+      </SEAM>
+    </WELDING>
+  </PROCESS>
+</WIA>

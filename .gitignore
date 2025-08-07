@@ -1,0 +1,21 @@
+# Python 缓存文件
+__pycache__/
+*.pyc
+
+# 日志文件
+*.log
+
+# 输出结果（你可以保留示例 input，但忽略输出）
+output/
+
+# 临时文件（比如测试文件、备份）
+*.bak
+*.tmp
+
+# Jupyter、VSCode等
+.ipynb_checkpoints/
+.vscode/
+
+# OS / IDE 系统生成的
+.DS_Store
+Thumbs.db
