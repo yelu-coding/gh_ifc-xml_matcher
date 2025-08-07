@@ -72,8 +72,10 @@ This Hops component performs orientation-aware matching between IFC and XML comp
 These are needed to dynamically extract the NC filename from the IFC properties:
 ```python
 i.get("Properties", {}).get(PSet, {}).get(PKey)
-![Hops Node Example](gh/hops_match_input.png)
  ```
+
+![Hops Node Example](gh/hops_match_input.png)
+
 
 ### OUTPUT
 | Param Name | Meaning                          |                              |
