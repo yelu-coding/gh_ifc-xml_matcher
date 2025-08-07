@@ -34,28 +34,63 @@ GH_IFC_Project/
 └── README.md              # You are here
  ```
 
-## 🚀 How to Run
+## 🚀 How to Run (on your own computer)
 
-### 1. Install Python dependencies:
+### ✅ Step-by-step
+
+### 1. Clone or unzip the project to a folder like `D:/GH_IFC_Project`
+
+### 2. Install dependencies
+
+Open **Anaconda Prompt** or **Git Bash**, then:
 
 ```bash
+cd /d D/GH_IFC_Project
+conda activate gh_ifc_env
 pip install -r requirements.txt
- ```
+```
 
-### 2. Launch the Hops server:
+### 3. Start the Hops server
+
 ```bash
 python app.py
- ```
+```
 
-Your endpoints will be available at:
-```bash
-http://localhost:5000/parse_ifc
-http://localhost:5000/parse_xml
-http://localhost:5000/match_components
- ```
+You should see:
 
-### 3. Open Grasshopper + Rhino
-Use the .gh files inside the gh/ folder and add Hops components with the appropriate URLs.
+```text
+Running on http://127.0.0.1:5000
+Loaded component: ParseIFC at /parse_ifc
+Loaded component: ParseXML at /parse_xml
+Loaded component: MatchComponents at /match_components
+```
+
+### 4. Launch Rhino + Grasshopper
+
+- Start Rhino 7 or 8
+- Run `Grasshopper`
+- Open a `.gh` file (e.g., `gh/full_pipeline.gh`)
+
+### 5. Set each Hops node URL
+
+Right-click on each Hops component and set the correct URL:
+
+```text
+http://127.0.0.1:5000/parse_ifc
+http://127.0.0.1:5000/parse_xml
+http://127.0.0.1:5000/match_components
+```
+
+### 6. Enter file paths using Panels
+
+- IFC File path (e.g. `D:\GH_IFC_Project\data\example.ifc`)
+- XML File path (e.g. `D:\GH_IFC_Project\data\example.xml`)
+- Output path: `output/result.json`, `output/result.csv`
+- PropertySet and PropertyKey: e.g., `+Träger`, `Position`
+
+### 7. View output in `output/` folder or load CSV into GH for visualization
+
+---
 
 
 ## 🎛️ Hops Node Interface: match_components
@@ -70,10 +105,12 @@ This Hops component performs orientation-aware matching between IFC and XML comp
 | `C`        | Output CSV path (e.g. `output/matched.csv`)                      |
 | `PSet`     | PropertySet in IFC used to extract NC file name (e.g. `+Träger`) |
 | `PKey`     | Key in the PropertySet (e.g. `Position`)                         |
-These are needed to dynamically extract the NC filename from the IFC properties:
-```python
-i.get("Properties", {}).get(PSet, {}).get(PKey)
- ```
+> These are needed to dynamically extract the NC filename from the IFC properties:
+>
+> ```python
+> i.get("Properties", {}).get(PSet, {}).get(PKey)
+> ```
+
 
 ![Hops Node Example](gh/hops_match_input.png)
 
@@ -100,7 +137,7 @@ MIT License © 2025 Ye Lu
 
 
 ## 📬 Contact / Feedback
-If you'd like to contribute, report an issue, or collaborate, feel free to contact Ye Lu or open a GitHub issue.
+If you'd like to contribute, report an issue, or collaborate, feel free to contact [Ye Lu](https://github.com/yelu-coding) or open a GitHub issue.
 
 
 
