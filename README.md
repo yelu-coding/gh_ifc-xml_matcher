@@ -153,5 +153,5 @@ MIT License © 2025 Ye Lu
 
 
 ## 📬 Contact / Feedback
-If you'd like to contribute, report an issue, or collaborate, feel free to contact [Ye Lu](https://github.com/yelu-coding) or open a GitHub issue.
+If you'd like to contribute, report an issue, or collaborate, feel free to open to contact luye_momo@foxmail.com or open a GitHub issue.
 =======
