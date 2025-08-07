@@ -69,7 +69,7 @@ Loaded component: MatchComponents at /match_components
 
 - Start Rhino 7 or 8
 - Run `Grasshopper`
-- Open a `.gh` file (e.g., `gh/full_pipeline.gh`)
+- Open a `.gh` file (in this case., `match_ifc_xml_by_nc.gh`)
 
 ### 5. Set each Hops node URL
 
@@ -87,6 +87,22 @@ http://127.0.0.1:5000/match_components
 - XML File path (e.g. `D:\GH_IFC_Project\data\example.xml`)
 - Output path: `output/result.json`, `output/result.csv`
 - PropertySet and PropertyKey: e.g., `+Träger`, `Position`
+> **About PropertySet and PropertyKey**  
+> In an IFC file, the component's `Properties` section does not directly store the NC file name. Instead, a specific PropertySet contains a field (PropertyKey) that stores a “position/identifier” value. This value can be mapped against an existing NC file name directory to determine the actual NC file name for that component.  
+> - **PropertySet** (e.g., `+Träger`) is the name of the property set in IFC.  
+> - **PropertyKey** (e.g., `Position`) is the specific field name within that property set.  
+>
+> In the IFC.JSON output, the value from this field must be cross-referenced with your existing NC file name directory to identify the correct NC file name.  
+>
+> In contrast, a DSTV XML file directly stores the NC file name (e.g., `2538.nc`) in the `Reference` field for each component, so there is no need for additional mapping — simply reading the `Reference` location is enough to get the NC file name.
+>
+> **Example comparison:**
+>
+> | Format | Field Location | Example Value | Notes |
+> |--------|----------------|---------------|-------|
+> | IFC    | `Properties["+Träger"]["Position"]` | `2538` | Needs mapping to `2538.nc` using NC file directory |
+> | XML    | `Reference`    | `2538.nc`     | NC file name is given directly |
+
 
 ### 7. View output in `output/` folder or load CSV into GH for visualization
 
