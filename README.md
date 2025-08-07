@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # IFC–DSTV XML Component Matcher with Grasshopper + Hops
 
 This project implements a modular, geometry-aware component matching system between **IFC models** and **DSTV-compliant XML assembly instructions**.  
@@ -111,7 +111,7 @@ http://127.0.0.1:5000/match_components
 
 ![Hops Node Example](gh/hops_match_input.png)
 
-<<<<<<< HEAD
+
 ## 🎛️ Hops Node Interface: match_components
 
 This Hops component performs orientation-aware matching between IFC and XML components.
