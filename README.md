@@ -1,157 +1,170 @@
-
 # IFC–DSTV XML Component Matcher with Grasshopper + Hops
 
-This project implements a modular, geometry-aware component matching system between **IFC models** and **DSTV-compliant XML assembly instructions**.  
-It is structured as a **Python Flask + Hops server**, fully controllable via **Grasshopper**, and capable of exporting **JSON/CSV result files** for downstream use.
+This project implements a **modular, geometry-aware matching system** between **IFC models** and **DSTV-compliant XML assembly instructions**.  
+It runs as a **Python Flask + Hops server** controlled from **Grasshopper**, and exports results to **JSON/CSV** for downstream use (validation, visualization, fabrication).
 
 ---
 
 ## 🧩 Key Features
 
-- ✅ IFC component extraction (GlobalId, position, direction, custom properties)
-- ✅ XML parsing of part position and orientation
-- ✅ NC file name–based matching (with fallback to geometry-based alignment)
-- ✅ Rotation matrix error computation + ambiguity flag
-- ✅ JSON + CSV export of match results
-- ✅ Modular Hops endpoints for each processing step
-- ✅ Grasshopper interface for live input & control
+- **IFC component extraction** (GlobalId, position, axis, ref-direction, custom properties)
+- **DSTV XML parsing** (reference NC name, base, local axes)
+- **Hybrid matching**  
+  1) NC name/identifier match (high confidence)  
+  2) Geometry-based comparison (matrix/axis alignment) as fallback
+- **Error metrics** (relative rotation matrix deviation, ambiguity flag)
+- **Exports**: JSON + CSV (optionally XLSX)
+- **Grasshopper integration** via **Hops** (modular endpoints per step)
 
 ---
 
 ## 📁 Folder Structure
+
 ```text
 GH_IFC_Project/
-├── app.py                 # Main Flask + Hops service entry point
+├── app.py                 # Flask + Hops entry point
 ├── core/                  # Step-wise processing logic
 │   ├── step1_ifc_parser.py
 │   ├── step2_xml_parser.py
 │   ├── step3_match_id.py
 │   └── step4_detected_updated.py
 ├── data/                  # Example input files (.ifc, .xml)
-├── output/                # Exported result files (.json, .csv, .xlsx)
-├── gh/                    # Grasshopper Hops interface files
-├── LICENSE                # MIT License
-├── requirements.txt       # Python dependencies
-└── README.md              # You are here
- ```
-
-## 🚀 How to Run (on your own computer)
-
-### ✅ Step-by-step
-
-### 1. Clone or unzip the project to a folder like `D:/GH_IFC_Project`
-
-### 2. Install dependencies
-
-Open **Anaconda Prompt** or **Git Bash**, then:
-
-```bash
-cd /d D/GH_IFC_Project
-conda activate gh_ifc_env
-pip install -r requirements.txt
+├── gh/                    # Grasshopper files & screenshots
+├── output/                # Exported results (.json, .csv, .xlsx)
+├── LICENSE
+└── README.md
 ```
 
-### 3. Start the Hops server
+---
 
-```bash
-python app.py
-```
+## 🚀 Quick Start (local)
 
-You should see:
+1. **Clone or unzip** the project to a folder like `D:/GH_IFC_Project`.
 
-```text
-Running on http://127.0.0.1:5000
-Loaded component: ParseIFC at /parse_ifc
-Loaded component: ParseXML at /parse_xml
-Loaded component: MatchComponents at /match_components
-```
+2. **Install dependencies**
+   ```bash
+   cd /d D/GH_IFC_Project
+   # (optional) conda activate your_env
+   pip install -r requirements.txt
+   ```
 
-### 4. Launch Rhino + Grasshopper
+3. **Start the Hops server**
+   ```bash
+   python app.py
+   ```
+   You should see:
+   ```
+   Running on http://127.0.0.1:5000
+   Loaded component: ParseIFC at /parse_ifc
+   Loaded component: ParseXML at /parse_xml
+   Loaded component: MatchComponents at /match_components
+   ```
 
-- Start Rhino 7 or 8
-- Run `Grasshopper`
-- Open a `.gh` file (in this case., `match_ifc_xml_by_nc.gh`)
+4. **Launch Rhino + Grasshopper**
+   - Start Rhino 7/8 → run `Grasshopper`
+   - Open your `.gh` file (e.g. `match_ifc_xml_by_nc.gh`)
 
-### 5. Set each Hops node URL
+5. **Set each Hops node URL**
+   ```
+   http://127.0.0.1:5000/parse_ifc
+   http://127.0.0.1:5000/parse_xml
+   http://127.0.0.1:5000/match_components
+   ```
 
-Right-click on each Hops component and set the correct URL:
+6. **Provide file paths in Panels**
+   - IFC file: `D:\GH_IFC_Project\data\example.ifc`
+   - XML file: `D:\GH_IFC_Project\data\example.xml`
+   - Output: `output\03_matched.json`, `output\03_matched.csv`
+   - IFC PropertySet / PropertyKey used to find the NC identifier  
+     e.g., **PSet** = `+Träger`, **PKey** = `Position`
 
-```text
-http://127.0.0.1:5000/parse_ifc
-http://127.0.0.1:5000/parse_xml
-http://127.0.0.1:5000/match_components
-```
-
-### 6. Enter file paths using Panels
-
-- IFC File path (e.g. `D:\GH_IFC_Project\data\example.ifc`)
-- XML File path (e.g. `D:\GH_IFC_Project\data\example.xml`)
-- Output path: `output/result.json`, `output/result.csv`
-- PropertySet and PropertyKey: e.g., `+Träger`, `Position`
 > **About PropertySet and PropertyKey**  
-> In an IFC file, the component's `Properties` section does not directly store the NC file name. Instead, a specific PropertySet contains a field (PropertyKey) that stores a “position/identifier” value. This value can be mapped against an existing NC file name directory to determine the actual NC file name for that component.  
-> - **PropertySet** (e.g., `+Träger`) is the name of the property set in IFC.  
-> - **PropertyKey** (e.g., `Position`) is the specific field name within that property set.  
->
-> In the IFC.JSON output, the value from this field must be cross-referenced with your existing NC file name directory to identify the correct NC file name.  
->
-> In contrast, a DSTV XML file directly stores the NC file name (e.g., `2538.nc`) in the `Reference` field for each component, so there is no need for additional mapping — simply reading the `Reference` location is enough to get the NC file name.
->
-> **Example comparison:**
->
-> | Format | Field Location | Example Value | Notes |
-> |--------|----------------|---------------|-------|
-> | IFC    | `Properties["+Träger"]["Position"]` | `2538` | Needs mapping to `2538.nc` using NC file directory |
-> | XML    | `Reference`    | `2538.nc`     | NC file name is given directly |
+> In **IFC**, the NC identifier is usually stored as a value inside a **PropertySet** (e.g., `+Träger`) under a **PropertyKey** (e.g., `Position`).  
+> This value is mapped to your NC filename directory to obtain the true NC file name (e.g., `2538` → `2538.nc`).  
+> In **DSTV XML**, the NC filename is provided directly in the `Reference` field (e.g., `2538.nc`).
 
+---
 
-### 7. View output in `output/` folder or load CSV into GH for visualization
-=======
-\# IFC–DSTV XML Component Matcher with Grasshopper + Hops
+## 🎛️ Hops Component: `match_components`
 
 ![Hops Node Example](gh/hops_match_input.png)
 
+**Inputs**
 
-## 🎛️ Hops Node Interface: match_components
+| Name  | Description                                                                 |
+|------:|-----------------------------------------------------------------------------|
+| `I`   | Path to parsed IFC JSON (from `/parse_ifc`)                                 |
+| `X`   | Path to parsed XML JSON (from `/parse_xml`)                                 |
+| `J`   | Output JSON path (e.g., `output/03_matched.json`)                           |
+| `C`   | Output CSV path (e.g., `output/03_matched.csv`)                             |
+| `PSet`| IFC PropertySet used to extract the NC identifier (e.g., `+Träger`)         |
+| `PKey`| Key inside the PropertySet (e.g., `Position`)                                |
 
-This Hops component performs orientation-aware matching between IFC and XML components.
+**Output**
 
-| Param Name | Meaning                                                          |
-| ---------- | ---------------------------------------------------------------- |
-| `I`        | Path to parsed IFC JSON file (from `/parse_ifc`)                 |
-| `X`        | Path to parsed XML JSON file (from `/parse_xml`)                 |
-| `J`        | Output JSON path (e.g. `output/matched.json`)                    |
-| `C`        | Output CSV path (e.g. `output/matched.csv`)                      |
-| `PSet`     | PropertySet in IFC used to extract NC file name (e.g. `+Träger`) |
-| `PKey`     | Key in the PropertySet (e.g. `Position`)                         |
-> These are needed to dynamically extract the NC filename from the IFC properties:
->
-> ```python
-> i.get("Properties", {}).get(PSet, {}).get(PKey)
-> ```
+| Name | Description                                                                                          |
+|-----:|------------------------------------------------------------------------------------------------------|
+| `R`  | Matching summary string (e.g., `✅ Matched: 9 | ⚠️ Manual Check Needed: 2`)                          |
 
+---
 
-### OUTPUT
-| Param Name | Meaning                          |                              |
-| ---------- | -------------------------------- | ---------------------------- |
-| `R`        | Matching summary (\`✅ Matched: X | ⚠️ Manual Check Needed: Y\`) |
+## 📊 Sample Output (CSV / JSON)
 
+| IFC_ID | XML_ID | Error  | Method                   | NC_Name | NeedManualCheck |
+|-------:|-------:|-------:|--------------------------|--------:|-----------------|
+| …      | …      | 0.0000 | unique_nc_name           | 1234.nc | False           |
+| …      | …      | 0.0032 | matrix_direction_match   | 2538.nc | **True**        |
 
-## 📊 Sample Output
+`NeedManualCheck = True` indicates visually/algorithmically similar candidates that should be reviewed.
 
-output/result.xlsx or output/matched.csv
+---
 
-| IFC\_ID | XML\_ID | Error   | Method                   | NC\_Name | NeedManualCheck |
-| ------- | ------- | ------- | ------------------------ | -------- | --------------- |
-| ...     | ...     | 0.00001 | unique\_nc\_name         | 1234.nc  | False           |
-| ...     | ...     | 0.00321 | matrix\_direction\_match | 2538.nc  | True            |
-NeedManualCheck = True indicates multiple near-identical matches by matrix.
+## 🔎 Ambiguity Detection & Manual Verification (Grasshopper)
 
+When the matcher flags records with `NeedManualCheck = True`, you can review each ambiguous IFC–XML pair directly in Grasshopper.  
+This workflow lets you step through the flagged pairs, inspect their local frames, and feed them into your verification cluster (planes/cylinders/matrices).
+
+![Manual check graph](gh/manual_check_1.png)
+![Manual check panels](gh/manual_check_2.png)
+
+**Goal**
+- Load `output/03_matched.json`
+- Filter pairs where `NeedManualCheck == True`
+- Use a slider **N (1…n)** to select the N-th ambiguous pair
+- Output three blocks for direct Panel/Cluster use:
+  - `real_ifc`: `{IFC_Location}`, `{IFC_Axis (Z)}`, `{IFC_RefDirection (X)}`
+  - `inverted_ifc`: same as above, but the third row is **−RefDirection (−X)**
+  - `xml`: `{XML_Base}`, `{XML_Rx (X)}`, `{XML_Ry (Y)}`
+- Also output `n_pairs` (total ambiguous count) and `pair_id = [IFC_ID, XML_ID, NC_Name]`
+
+**Wiring**
+1. Run the matcher to generate `output/03_matched.json`.
+2. In Grasshopper, set `path` to that file and `pair_number` to `1…n_pairs`.
+3. Wire `real_ifc / inverted_ifc / xml` into your verification cluster to produce planes/cylinders/4×4 transforms.
+4. Decide manually based on the visualization and metrics.
+
+> 📄 **Repository note**  
+> To keep the README concise, place the helper script in `gh/helpers/manual_check.py` (or include a small `.gh` example like `gh/manual_check_example.gh`).  
+> The README only shows the workflow and screenshots.
+
+---
+
+## ✅ Tips & Troubleshooting
+
+- Use **absolute Windows paths** in Panels (e.g., `D:\GH_IFC_Project\...`) to avoid working-directory issues.  
+- If a Panel displays `IronPython.Runtime.List` / `System.Double[]` instead of `{x,y,z}`, convert lists to **Point3d/Vector3d** (or use your cluster inputs that accept vectors).  
+- Large IFCs: start with a smaller sample to validate the pipeline before scaling up.
+
+---
 
 ## 📄 License
+
 MIT License © 2025 Ye Lu
 
+---
 
-## 📬 Contact / Feedback
-If you'd like to contribute, report an issue, or collaborate, feel free to open to contact luye_momo@foxmail.com or open a GitHub issue.
-=======
+## 📬 Contact
+
+- Email: **luye_momo@foxmail.com**  
+- GitHub: **yelu-coding** (https://github.com/yelu-coding)
+
