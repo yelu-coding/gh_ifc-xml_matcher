@@ -156,6 +156,7 @@ This workflow lets you step through the flagged pairs, inspect their local frame
 ![Manual check graph](gh/manual_check_1.png)
 ![Manual check panels](gh/manual_check_2.png)
 
+
 **Goal**
 - Load `output/03_matched.json`
 - Filter pairs where `NeedManualCheck == True`
