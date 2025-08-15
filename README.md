@@ -29,8 +29,12 @@ GH_IFC_Project/
 │   ├── step3_match_id.py
 │   └── step4_detected_updated.py
 ├── data/                  # Example input files (.ifc, .xml)
-├── gh/                    # Grasshopper files & screenshots
-├── output/                # Exported results (.json, .csv, .xlsx)
+├── gh/                    # Grasshopper files, helpers & screenshots
+│   ├── match_ifc_xml_by_nc_manulcheck.gh
+│   ├── ambiguity_detection_manual_check.png
+│   └── ifc_dstv_xml_match.png
+├── output/                # Exported results (.json, .csv, .xlsx) — usually gitignored
+├── requirements.txt       # pip packages for environment replication
 ├── LICENSE
 └── README.md
 ```
