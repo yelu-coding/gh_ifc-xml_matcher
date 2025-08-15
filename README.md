@@ -31,12 +31,17 @@ GH_IFC_Project/
 ├── data/                  # Example input files (.ifc, .xml)
 ├── gh/                    # Grasshopper files, helpers & screenshots
 │   ├── match_ifc_xml_by_nc_manulcheck.gh
-│   ├── ambiguity_detection_manual_check.png
-│   └── ifc_dstv_xml_match.png
+│   ├── helpers/
+│   │   └── manual_check.py            # (optional) GH Python helper kept out of README
+│   ├── manual_check_1.png             # your screenshots (rename as you like)
+│   └── manual_check_2.png
 ├── output/                # Exported results (.json, .csv, .xlsx) — usually gitignored
-├── requirements.txt       # pip packages for environment replication
+├── env/                   # Reproducible conda environments
+│   └── environment.yml
+├── requirements.txt       # pip packages (if you used pip)
 ├── LICENSE
 └── README.md
+
 ```
 
 ---
