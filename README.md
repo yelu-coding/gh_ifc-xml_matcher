@@ -48,44 +48,64 @@ GH_IFC_Project/
 
 ## 🚀 Quick Start (local)
 
-1. **Clone or unzip** the project to a folder like `D:/GH_IFC_Project`.
+### 1) Clone or unzip
+- Put the project in a folder like `D:/GH_IFC_Project`.
 
-2. **Install dependencies**
-   ```bash
-   cd /d D/GH_IFC_Project
-   # (optional) conda activate your_env
-   pip install -r requirements.txt
-   ```
+### 2) Set up the environment
+> You can use **conda** (recommended) or plain **pip**.
 
-3. **Start the Hops server**
-   ```bash
-   python app.py
-   ```
-   You should see:
-   ```
-   Running on http://127.0.0.1:5000
-   Loaded component: ParseIFC at /parse_ifc
-   Loaded component: ParseXML at /parse_xml
-   Loaded component: MatchComponents at /match_components
-   ```
+**Conda (recommended)**
+```bash
+cd /d D/GH_IFC_Project
+conda env create -n gh_ifc_env -f env/environment.yml
+conda activate gh_ifc_env
+```
 
-4. **Launch Rhino + Grasshopper**
-   - Start Rhino 7/8 → run `Grasshopper`
-   - Open your `.gh` file (e.g. `match_ifc_xml_by_nc.gh`)
+**Pip (fallback)**
+```bash
+cd /d D/GH_IFC_Project
+pip install -r requirements.txt
+```
 
-5. **Set each Hops node URL**
-   ```
-   http://127.0.0.1:5000/parse_ifc
-   http://127.0.0.1:5000/parse_xml
-   http://127.0.0.1:5000/match_components
-   ```
+### 3) Start the Hops server
+```bash
+python app.py
+```
+You should see:
+```
+Running on http://127.0.0.1:5000
+Loaded component: ParseIFC at /parse_ifc
+Loaded component: ParseXML at /parse_xml
+Loaded component: MatchComponents at /match_components
+```
 
-6. **Provide file paths in Panels**
-   - IFC file: `D:\GH_IFC_Project\data\example.ifc`
-   - XML file: `D:\GH_IFC_Project\data\example.xml`
-   - Output: `output\03_matched.json`, `output\03_matched.csv`
-   - IFC PropertySet / PropertyKey used to find the NC identifier  
-     e.g., **PSet** = `+Träger`, **PKey** = `Position`
+### 4) Launch Rhino + Grasshopper
+- Start Rhino 7/8 → run `Grasshopper`
+- Open the GH definition (e.g. `gh/match_ifc_xml_by_nc.gh` or `gh/match_ifc_xml_by_nc_manulcheck.gh`)
+
+### 5) Set each Hops node URL
+```
+http://127.0.0.1:5000/parse_ifc
+http://127.0.0.1:5000/parse_xml
+http://127.0.0.1:5000/match_components
+```
+
+### 6) Provide file paths in Panels
+- IFC file: `D:\GH_IFC_Project\data\example.ifc`
+- XML file: `D:\GH_IFC_Project\data\example.xml`
+- Output: `output\03_matched.json`, `output\03_matched.csv`
+- IFC PropertySet / PropertyKey for NC lookup  
+  e.g., **PSet** = `+Träger`, **PKey** = `Position`
+
+> In **IFC**, the NC identifier is stored as a value inside a **PropertySet** (e.g., `+Träger`) under a **PropertyKey** (e.g., `Position`), which maps to your NC filename (`2538` → `2538.nc`).  
+> In **DSTV XML**, the NC filename is directly available in `Reference` (e.g., `2538.nc`).
+
+### 7) (Optional) Review ambiguous pairs in GH
+After `03_matched.json` is created, open the manual check graph (e.g. `gh/match_ifc_xml_by_nc_manulcheck.gh`) and:
+- Set `path` → `output\03_matched.json`
+- Use a slider **N (1…n_pairs)** to step through pairs where `NeedManualCheck == True`
+- Panels will show `real_ifc`, `inverted_ifc`, and `xml` (three rows each) for your verification cluster
+
 
 > **About PropertySet and PropertyKey**  
 > In **IFC**, the NC identifier is usually stored as a value inside a **PropertySet** (e.g., `+Träger`) under a **PropertyKey** (e.g., `Position`).  
