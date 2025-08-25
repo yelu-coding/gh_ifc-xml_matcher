@@ -153,8 +153,9 @@ After `03_matched.json` is created, open the manual check graph (e.g. `gh/match_
 When the matcher flags records with `NeedManualCheck = True`, you can review each ambiguous IFC–XML pair directly in Grasshopper.  
 This workflow lets you step through the flagged pairs, inspect their local frames, and feed them into your verification cluster (planes/cylinders/matrices).
 
-![Manual check graph](gh/manual_check_1.png)
+
 ![Manual check panels](gh/manual_check_2.png)
+![Manual check graph](gh/manual_check_1.png)
 
 
 **Goal**
