@@ -155,7 +155,7 @@ This workflow lets you step through the flagged pairs, inspect their local frame
 
 
 ![Manual check panels](gh/manual_check_2.png)
-![Manual check graph](gh/manual_check_1.png)
+![Manual check graph](gh/manual_check_1.png) 
 
 
 **Goal**
